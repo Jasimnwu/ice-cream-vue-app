@@ -13,24 +13,13 @@ const app = Vue.createApp({
         }
     },
     methods: {
-        addToCart(variantId) {
-            this.cart.push(this.variants.find(variant => variant.id === variantId));
+        addToCart( variantID ) {
+           this.cart.push(this.variants.find(variant=> variant.id === variantID) );
         },
-        removeFromCart(variantId) {
-            let position = this.cart.findIndex(variant => variant.id === variantId);
-
-            this.cart.splice(position, 1);
-        },
-        toggleModal() {
-            this.showModal = !this.showModal;
-        },
-        clearCart() {
-            this.cart = [];
+        removeFromCart(variantID) {
+            let position = this.cart.findIndex(variant => variant.id === variantID);
+            this.cart.splice(position,1);
+           
         }
-    },
-    computed: {
-        total() {
-            return this.cart.reduce((t, variant) => t + variant.price, 0);
-        }
-    }
+    }   
 });
